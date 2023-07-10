@@ -5,6 +5,7 @@
 //  Created by Brandon Withrow on 1/23/19.
 //
 
+import AVFoundation
 import Foundation
 import QuartzCore
 
@@ -401,6 +402,18 @@ final public class LottieAnimationView: LottieAnimationViewBase {
 
   /// Sets the speed of the animation playback. Defaults to 1
   public var animationSpeed: CGFloat = 1 {
+    didSet {
+      updateInFlightAnimation()
+    }
+  }
+
+  public var usesInAVSynchronizedLayer = false {
+    didSet {
+      updateInFlightAnimation()
+    }
+  }
+
+  public var animationDelay: TimeInterval = 0 {
     didSet {
       updateInFlightAnimation()
     }
@@ -852,7 +865,7 @@ final public class LottieAnimationView: LottieAnimationViewBase {
 
   // MARK: Internal
 
-  var animationLayer: RootAnimationLayer? = nil
+  public internal(set) var animationLayer: RootAnimationLayer? = nil
 
   /// Set animation name from Interface Builder
   @IBInspectable var animationName: String? {
@@ -1361,7 +1374,9 @@ final public class LottieAnimationView: LottieAnimationViewBase {
       var timingConfiguration = CoreAnimationLayer.CAMediaTimingConfiguration(
         autoreverses: loopMode.caAnimationConfiguration.autoreverses,
         repeatCount: loopMode.caAnimationConfiguration.repeatCount,
-        speed: abs(Float(animationSpeed)))
+        speed: abs(Float(animationSpeed)),
+        usesInAVSynchronizedLayer: usesInAVSynchronizedLayer,
+        delay: animationDelay)
 
       // The animation should start playing from the `currentFrame`,
       // if `currentFrame` is included in the time range being played.

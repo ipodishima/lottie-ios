@@ -10,7 +10,7 @@ import QuartzCore
 
 // MARK: - NodePropertyMap
 
-protocol NodePropertyMap {
+public protocol NodePropertyMap {
   var properties: [AnyNodeProperty] { get }
 }
 

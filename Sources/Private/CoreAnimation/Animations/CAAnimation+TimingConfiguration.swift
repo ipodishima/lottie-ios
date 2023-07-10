@@ -1,6 +1,7 @@
 // Created by Cal Stephens on 1/6/22.
 // Copyright © 2022 Airbnb Inc. All rights reserved.
 
+import AVFoundation
 import QuartzCore
 
 extension CAAnimation {
@@ -63,6 +64,11 @@ extension CAAnimation {
     if context.timingConfiguration.speed == 0 {
       let currentTime = layer.convertTime(CACurrentMediaTime(), from: nil)
       clippingParent.beginTime = currentTime - .leastNonzeroMagnitude
+    }
+
+    if context.timingConfiguration.usesInAVSynchronizedLayer {
+      clippingParent.beginTime = AVCoreAnimationBeginTimeAtZero + context.timingConfiguration
+        .delay * Double(context.timingConfiguration.speed)
     }
 
     return clippingParent

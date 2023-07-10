@@ -68,6 +68,8 @@ final class CoreAnimationLayer: BaseAnimationLayer {
     var repeatCount: Float = 0
     var speed: Float = 1
     var timeOffset: TimeInterval = 0
+    var usesInAVSynchronizedLayer = false
+    var delay: TimeInterval = 0
   }
 
   enum PlaybackState: Equatable {

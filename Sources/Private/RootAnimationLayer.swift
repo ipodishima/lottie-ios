@@ -6,7 +6,7 @@ import QuartzCore
 // MARK: - RootAnimationLayer
 
 /// A root `CALayer` responsible for playing a Lottie animation
-protocol RootAnimationLayer: CALayer {
+public protocol RootAnimationLayer: CALayer {
   var currentFrame: AnimationFrameTime { get set }
   var renderScale: CGFloat { get set }
   var respectAnimationFrameRate: Bool { get set }
@@ -43,7 +43,7 @@ protocol RootAnimationLayer: CALayer {
 
 // MARK: - AnimationKey
 
-enum AnimationKey {
+public enum AnimationKey {
   /// The primary animation and its key should be managed by `LottieAnimationView`
   case managed
   /// The primary animation always uses the given key
