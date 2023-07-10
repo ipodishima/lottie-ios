@@ -390,7 +390,7 @@ extension CoreAnimationLayer: RootAnimationLayer {
           playTo: animation.endFrame,
           closure: nil),
         timingConfiguration: CAMediaTimingConfiguration(speed: 0),
-        runningDestination: currentAnimationConfiguration?.runningDestination ?? .uiKit)
+        runningDestination: pendingAnimationConfiguration?.animationConfiguration.runningDestination ?? .uiKit)
 
       if
         pendingAnimationConfiguration == nil,
