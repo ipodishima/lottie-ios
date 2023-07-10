@@ -808,6 +808,9 @@
 		D453D8B228FF9EA900D3F49C /* DefaultAnimationCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D453D8B028FF9E3A00D3F49C /* DefaultAnimationCache.swift */; };
 		D453D8B328FF9EAA00D3F49C /* DefaultAnimationCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D453D8B028FF9E3A00D3F49C /* DefaultAnimationCache.swift */; };
 		D453D8B428FF9EAA00D3F49C /* DefaultAnimationCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D453D8B028FF9E3A00D3F49C /* DefaultAnimationCache.swift */; };
+		E0A1B0CE2A5C38650027E938 /* LottieAnimationRunningDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A1B0CD2A5C38650027E938 /* LottieAnimationRunningDestination.swift */; };
+		E0A1B0CF2A5C38650027E938 /* LottieAnimationRunningDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A1B0CD2A5C38650027E938 /* LottieAnimationRunningDestination.swift */; };
+		E0A1B0D02A5C38650027E938 /* LottieAnimationRunningDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A1B0CD2A5C38650027E938 /* LottieAnimationRunningDestination.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1108,6 +1111,7 @@
 		D453D8AA28FE6EE300D3F49C /* LottieAnimationCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationCache.swift; sourceTree = "<group>"; };
 		D453D8AE28FF9BC600D3F49C /* AnimationCacheProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCacheProviderTests.swift; sourceTree = "<group>"; };
 		D453D8B028FF9E3A00D3F49C /* DefaultAnimationCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAnimationCache.swift; sourceTree = "<group>"; };
+		E0A1B0CD2A5C38650027E938 /* LottieAnimationRunningDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieAnimationRunningDestination.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1836,8 +1840,9 @@
 			isa = PBXGroup;
 			children = (
 				0887346E28F0CBDE00458627 /* LottieAnimation.swift */,
-				82A552742A2FD44B00E47AC8 /* LottieAnimationLayer.swift */,
 				0887347228F0CCDD00458627 /* LottieAnimationHelpers.swift */,
+				82A552742A2FD44B00E47AC8 /* LottieAnimationLayer.swift */,
+				E0A1B0CD2A5C38650027E938 /* LottieAnimationRunningDestination.swift */,
 				0887347428F0CCDD00458627 /* LottieAnimationView.swift */,
 				0887347328F0CCDD00458627 /* LottieAnimationViewInitializers.swift */,
 				08C002F42A461D6A00AB54BA /* LottieView.swift */,
@@ -2244,6 +2249,7 @@
 				2EAF5AE327A0798700E00531 /* AnimationCacheProvider.swift in Sources */,
 				2E9C96422822F43100677516 /* RootAnimationLayer.swift in Sources */,
 				2E9C97712822F43100677516 /* AnimationContext.swift in Sources */,
+				E0A1B0CE2A5C38650027E938 /* LottieAnimationRunningDestination.swift in Sources */,
 				08C002052A46150D00AB54BA /* Archive+Progress.swift in Sources */,
 				08C002F52A461D6A00AB54BA /* LottieView.swift in Sources */,
 				08C002662A46166400AB54BA /* ViewDifferentiatorProviding.swift in Sources */,
@@ -2727,6 +2733,7 @@
 				2E9C962B2822F43100677516 /* TextDocument.swift in Sources */,
 				2EAF5AE727A0798700E00531 /* LRUAnimationCache.swift in Sources */,
 				08B171D12A4A2F8E000F65DB /* Diffable.swift in Sources */,
+				E0A1B0CF2A5C38650027E938 /* LottieAnimationRunningDestination.swift in Sources */,
 				2EAF5AC927A0798700E00531 /* AnimatedButton.swift in Sources */,
 				08C002D92A46196300AB54BA /* URL+ZIP.swift in Sources */,
 				2E9C962E2822F43100677516 /* Glyph.swift in Sources */,
@@ -2801,6 +2808,7 @@
 				6DB3BDBE28245A14002A276D /* CGPointExtension.swift in Sources */,
 				2EAF5AE527A0798700E00531 /* AnimationCacheProvider.swift in Sources */,
 				2E9C96442822F43100677516 /* RootAnimationLayer.swift in Sources */,
+				E0A1B0D02A5C38650027E938 /* LottieAnimationRunningDestination.swift in Sources */,
 				2E9C97732822F43200677516 /* AnimationContext.swift in Sources */,
 				08C002F62A461D6A00AB54BA /* LottieView.swift in Sources */,
 				2E9C96B32822F43100677516 /* NodeProperty.swift in Sources */,

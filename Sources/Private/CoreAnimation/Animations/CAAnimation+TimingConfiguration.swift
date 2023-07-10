@@ -66,9 +66,10 @@ extension CAAnimation {
       clippingParent.beginTime = currentTime - .leastNonzeroMagnitude
     }
 
-    if context.timingConfiguration.usesInAVSynchronizedLayer {
-      clippingParent.beginTime = AVCoreAnimationBeginTimeAtZero + context.timingConfiguration
-        .delay * Double(context.timingConfiguration.speed)
+    // If the animation is playing on an `AVSynchronizedLayer`, we need to setup the `beginTime` with
+    // `AVCoreAnimationBeginTimeAtZero` + start of the animation aka the `delay`
+    if case .avSynchronizedLayer(let delay) = context.runningDestination {
+      clippingParent.beginTime = AVCoreAnimationBeginTimeAtZero + delay * Double(context.timingConfiguration.speed)
     }
 
     return clippingParent

@@ -69,8 +69,6 @@ final class CoreAnimationLayer: BaseAnimationLayer {
     var repeatCount: Float = 0
     var speed: Float = 1
     var timeOffset: TimeInterval = 0
-    var usesInAVSynchronizedLayer = false
-    var delay: TimeInterval = 0
   }
 
   enum PlaybackState: Equatable {
@@ -87,6 +85,7 @@ final class CoreAnimationLayer: BaseAnimationLayer {
   struct AnimationConfiguration: Equatable {
     var animationContext: AnimationContext
     var timingConfiguration: CAMediaTimingConfiguration
+    var runningDestination: LottieAnimationRunningDestination
     var recordHierarchyKeypath: ((String) -> Void)?
 
     static func ==(_ lhs: AnimationConfiguration, _ rhs: AnimationConfiguration) -> Bool {
@@ -262,6 +261,7 @@ final class CoreAnimationLayer: BaseAnimationLayer {
     let layerContext = LayerAnimationContext(
       animation: animation,
       timingConfiguration: configuration.timingConfiguration,
+      runningDestination: configuration.runningDestination,
       startFrame: configuration.animationContext.playFrom,
       endFrame: configuration.animationContext.playTo,
       valueProviderStore: valueProviderStore,
@@ -389,7 +389,8 @@ extension CoreAnimationLayer: RootAnimationLayer {
           playFrom: animation.startFrame,
           playTo: animation.endFrame,
           closure: nil),
-        timingConfiguration: CAMediaTimingConfiguration(speed: 0))
+        timingConfiguration: CAMediaTimingConfiguration(speed: 0),
+        runningDestination: currentAnimationConfiguration?.runningDestination ?? .uiKit)
 
       if
         pendingAnimationConfiguration == nil,

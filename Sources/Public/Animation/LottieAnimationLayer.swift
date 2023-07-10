@@ -534,7 +534,8 @@ public class LottieAnimationLayer: CALayer {
     }
   }
 
-  public var usesInAVSynchronizedLayer = false {
+  /// The destination where the Lottie animation is running. Defaults to `uiKit`
+  public var runningDestination: LottieAnimationRunningDestination = .uiKit {
     didSet {
       updateInFlightAnimation()
     }
@@ -1141,9 +1142,7 @@ public class LottieAnimationLayer: CALayer {
       var timingConfiguration = CoreAnimationLayer.CAMediaTimingConfiguration(
         autoreverses: loopMode.caAnimationConfiguration.autoreverses,
         repeatCount: loopMode.caAnimationConfiguration.repeatCount,
-        speed: abs(Float(animationSpeed)),
-        usesInAVSynchronizedLayer: usesInAVSynchronizedLayer,
-        delay: animationDelay)
+        speed: abs(Float(animationSpeed)))
 
       // The animation should start playing from the `currentFrame`,
       // if `currentFrame` is included in the time range being played.
@@ -1186,7 +1185,8 @@ public class LottieAnimationLayer: CALayer {
 
       coreAnimationLayer.playAnimation(configuration: .init(
         animationContext: animationContext,
-        timingConfiguration: timingConfiguration))
+        timingConfiguration: timingConfiguration,
+        runningDestination: runningDestination))
 
       return
     }

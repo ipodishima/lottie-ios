@@ -23,6 +23,9 @@ struct LayerAnimationContext {
   /// The timing configuration that should be applied to `CAAnimation`s
   let timingConfiguration: CoreAnimationLayer.CAMediaTimingConfiguration
 
+  /// The running destination that should be applied to `CAAnimation`s
+  let runningDestination: LottieAnimationRunningDestination
+
   /// The absolute frame number that this animation begins at
   let startFrame: AnimationFrameTime
 
