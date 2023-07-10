@@ -534,6 +534,18 @@ public class LottieAnimationLayer: CALayer {
     }
   }
 
+  public var usesInAVSynchronizedLayer = false {
+    didSet {
+      updateInFlightAnimation()
+    }
+  }
+
+  public var animationDelay: TimeInterval = 0 {
+    didSet {
+      updateInFlightAnimation()
+    }
+  }
+
   /// When `true` the animation will play back at the framerate encoded in the
   /// `LottieAnimation` model. When `false` the animation will play at the framerate
   /// of the device.
@@ -1129,7 +1141,9 @@ public class LottieAnimationLayer: CALayer {
       var timingConfiguration = CoreAnimationLayer.CAMediaTimingConfiguration(
         autoreverses: loopMode.caAnimationConfiguration.autoreverses,
         repeatCount: loopMode.caAnimationConfiguration.repeatCount,
-        speed: abs(Float(animationSpeed)))
+        speed: abs(Float(animationSpeed)),
+        usesInAVSynchronizedLayer: usesInAVSynchronizedLayer,
+        delay: animationDelay)
 
       // The animation should start playing from the `currentFrame`,
       // if `currentFrame` is included in the time range being played.

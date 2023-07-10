@@ -5,6 +5,7 @@
 //  Created by Brandon Withrow on 1/23/19.
 //
 
+import AVFoundation
 import Foundation
 import QuartzCore
 
@@ -468,6 +469,16 @@ open class LottieAnimationView: LottieAnimationViewBase {
     set { lottieAnimationLayer.animationSpeed = newValue }
   }
 
+  public var usesInAVSynchronizedLayer: Bool {
+    get { lottieAnimationLayer.usesInAVSynchronizedLayer }
+    set { lottieAnimationLayer.usesInAVSynchronizedLayer = newValue }
+  }
+
+  public var animationDelay: TimeInterval {
+    get { lottieAnimationLayer.animationDelay }
+    set { lottieAnimationLayer.animationDelay = newValue }
+  }
+
   /// When `true` the animation will play back at the framerate encoded in the
   /// `LottieAnimation` model. When `false` the animation will play at the framerate
   /// of the device.
@@ -512,6 +523,10 @@ open class LottieAnimationView: LottieAnimationViewBase {
   ///    but a `RootAnimationLayer` hasn't been constructed yet
   public var currentRenderingEngine: RenderingEngine? {
     lottieAnimationLayer.currentRenderingEngine
+  }
+
+  public var animationLayer: RootAnimationLayer? {
+    lottieAnimationLayer.animationLayer
   }
 
   /// Sets the lottie file backing the animation view. Setting this will clear the
@@ -721,10 +736,6 @@ open class LottieAnimationView: LottieAnimationViewBase {
   }
 
   // MARK: Internal
-
-  var animationLayer: RootAnimationLayer? {
-    lottieAnimationLayer.animationLayer
-  }
 
   /// Set animation name from Interface Builder
   @IBInspectable var animationName: String? {

@@ -9,7 +9,7 @@ import CoreGraphics
 import Foundation
 
 /// The container for the value of a property.
-protocol AnyValueContainer: AnyObject {
+public protocol AnyValueContainer: AnyObject {
 
   /// The stored value of the container
   var value: Any { get }
